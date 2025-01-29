@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualization Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .controls {
+            margin: 20px;
+        }
+        .bar-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 300px;
+            margin: 20px auto;
+        }
+        .bar {
+            width: 20px;
+            margin: 2px;
+            background-color: #007BFF;
+        }
+        .highlight {
+            background-color: #FF4136 !important;
+        }
+    </style>
+</head>
+<body>
+    <h2>Sorting Visualization Tool</h2>
+    <div class="controls">
+        <button onclick="resetArray()">Reset Array</button>
+        <button onclick="startSorting('bubble')">Bubble Sort</button>
+        <button onclick="startSorting('insertion')">Insertion Sort</button>
+        <label>Speed: <input type="range" id="speed" min="1" max="100" value="50"></label>
+    </div>
+    <div class="bar-container" id="bar-container"></div>
+    <p id="commentary">Press a button to start sorting.</p>
+
+    <script src="js/project09.js"></script>
+</body>
+</html>

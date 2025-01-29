@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Keyboard Trainer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .trainer-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .target-text {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .input-box {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .results {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Customizable Keyboard Trainer</h2>
+    <div class="trainer-container">
+        <p class="target-text" id="target-text"></p>
+        <input type="text" class="input-box" id="input-box" autofocus>
+        <p class="results">WPM: <span id="wpm">0</span> | Accuracy: <span id="accuracy">100%</span></p>
+        <div class="controls">
+            <label>Difficulty: 
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </label>
+            <button onclick="restartTest()">Restart</button>
+        </div>
+    </div>
+
+    <script src="js/project10.js"></script>
+</body>
+</html>

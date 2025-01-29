@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Story Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .story-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .choices button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+        }
+        .choices button:hover {
+            background-color: #0056b3;
+        }
+        .progress {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Interactive Story Game</h2>
+    <div class="story-container">
+        <p id="story-text">Welcome to your adventure. What will you do?</p>
+        <div class="choices" id="choices"></div>
+        <p class="progress">Progress: <span id="progress">Start</span></p>
+        <div class="controls">
+            <button onclick="resetGame()">Restart Game</button>
+        </div>
+    </div>
+
+    <script src="js/project08.js"></script>
+</body>
+</html>

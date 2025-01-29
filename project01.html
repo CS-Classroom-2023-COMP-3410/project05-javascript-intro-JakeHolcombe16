@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Digital Clock</title>
+    <style>
+        :root {
+    --clock-color: #000000;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    color: var(--clock-color);
+}
+
+.clock-container {
+    text-align: center;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.clock {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.settings, .alarm-settings {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+    </style>
+</head>
+<body>
+    <div class="clock-container">
+        <div id="clock" class="clock"></div>
+        <button id="toggle-format">Toggle 12/24 Hour</button>
+        <div class="settings">
+            <label>
+                Clock Color:
+                <input type="color" id="color-input">
+            </label>
+            <label>
+                Font Size (px):
+                <input type="number" id="font-size-input" min="10" max="100" value="24">
+            </label>
+        </div>
+        <div class="alarm-settings">
+            <label>
+                Set Alarm (HH:MM):
+                <input type="time" id="alarm-input">
+            </label>
+            <button id="set-alarm">Set Alarm</button>
+        </div>
+    </div>
+    <script src="js/project01.js"></script>
+</body>
+</html>

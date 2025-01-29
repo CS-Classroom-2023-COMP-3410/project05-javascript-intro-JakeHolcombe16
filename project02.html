@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    #add-task-form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    #task-input {
+      width: 70%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #filter-options {
+      display: block;
+      margin: 0 auto 20px auto;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #task-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+
+    .task-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: grab;
+    }
+
+    .task-item:active {
+      cursor: grabbing;
+    }
+
+    .task-item span {
+      flex-grow: 1;
+      margin-left: 10px;
+      cursor: text;
+    }
+
+    .task-item button {
+      background-color: #dc3545;
+    }
+
+    .task-item button:hover {
+      background-color: #a71d2a;
+    }
+
+    input[type="checkbox"] {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interactive To-Do List</h1>
+
+  <form id="add-task-form">
+    <input type="text" id="task-input" placeholder="Add a new task..." required />
+    <button type="submit">Add Task</button>
+  </form>
+
+  <select id="filter-options">
+    <option value="all">All</option>
+    <option value="completed">Completed</option>
+    <option value="pending">Pending</option>
+  </select>
+
+  <ul id="task-list"></ul>
+
+  <script>
+     // Fix for missing addDragAndDropHandlers definition
+     function addDragAndDropHandlers() {
+      const taskItems = document.querySelectorAll(".task-item");
+      taskItems.forEach(item => {
+        item.addEventListener("dragstart", handleDragStart);
+        item.addEventListener("dragover", handleDragOver);
+        item.addEventListener("drop", handleDrop);
+      });
+    }
+
+    let dragStartIndex;
+
+    function handleDragStart(e) {
+      dragStartIndex = +e.target.dataset.index;
+      e.target.classList.add("dragging");
+    }
+
+    function handleDragOver(e) {
+      e.preventDefault();
+      const draggingItem = document.querySelector(".dragging");
+      if (draggingItem && e.target !== draggingItem && e.target.classList.contains("task-item")) {
+        const taskList = document.getElementById("task-list");
+        const currentIndex = +e.target.dataset.index;
+        if (dragStartIndex !== currentIndex) {
+          taskList.insertBefore(draggingItem, e.target.nextSibling);
+        }
+      }
+    }
+
+    function handleDrop(e) {
+      e.target.classList.remove("dragging");
+      const dragEndIndex = +e.target.dataset.index;
+      if (dragStartIndex !== dragEndIndex) {
+        const [movedTask] = tasks.splice(dragStartIndex, 1);
+        tasks.splice(dragEndIndex, 0, movedTask);
+        renderTasks();
+      }
+    }
+
+    // Additional code from todo_list.js goes here
+  </script>
+  <script src="js/project02.js"></script>
+</body>
+</html>
